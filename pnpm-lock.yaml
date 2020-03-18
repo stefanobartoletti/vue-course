@@ -1,0 +1,10 @@
+dependencies:
+  vue: 2.6.11
+lockfileVersion: 5.1
+packages:
+  /vue/2.6.11:
+    dev: false
+    resolution:
+      integrity: sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
+specifiers:
+  vue: ^2.6.11
