@@ -1,7 +1,8 @@
 new Vue({
     el: '#app',
     data: {
-        title: 'Hello World!'
+        title: 'Hello World!',
+        link: 'https://www.google.com'
     },
     methods: {
       changeTitle: function(event) {
