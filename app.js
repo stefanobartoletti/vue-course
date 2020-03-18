@@ -5,6 +5,8 @@ new Vue({
         link: 'https://www.google.com',
         fullLink: '<a href="https://www.google.com" target="_blank">Google</a>',
         counter: 0,
+        x: 0,
+        y: 0,
     },
     methods: {
       sayHello: function() {
@@ -13,6 +15,10 @@ new Vue({
       },
       increase: function() {
         this.counter++;
+      },
+      updateCoordinates: function(event) {
+        this.x = event.clientX;
+        this.y = event.clientY;
       }
     }
 });
