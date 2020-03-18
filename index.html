@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS</title>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
 </head>
 
 <body>   
     
     <div id="app">
-        <input type="text" v-on:input="changeTitle">
-        <p>{{ title }}</p>
+        <h1 v-once>{{ title }}</h1>
         <p>{{ sayHello() }}</p>
         <a v-bind:href="link" target="_blank">Google</a>
     </div>

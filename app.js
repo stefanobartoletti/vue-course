@@ -5,10 +5,8 @@ new Vue({
         link: 'https://www.google.com'
     },
     methods: {
-      changeTitle: function(event) {
-        this.title = event.target.value;
-      },
       sayHello: function() {
+        this.title = 'Hello!'
         return  'The title is ' + this.title;
       }
     }
