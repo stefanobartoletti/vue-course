@@ -13,7 +13,8 @@
     <div id="app">
         <h1 v-once>{{ title }}</h1>
         <p>{{ sayHello() }}</p>
-        <a v-bind:href="link" target="_blank">Google</a>
+        <p><a v-bind:href="link" target="_blank">Google</a></p>
+        <p v-html="fullLink"></p>
     </div>
 
     <script src="app.js"></script>
