@@ -15,6 +15,8 @@ new Vue({
 
         name: 'Stefano',
 
+        attachRed: false,
+
     },
 
     computed: { // Computed variables (similar to "cached" computed data; run synchronously)
