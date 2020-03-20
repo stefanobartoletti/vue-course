@@ -13,12 +13,12 @@
     <div id="app">
         <h1 v-once>{{ title }}</h1>
         <p>{{ sayHello() }}</p>
-        <p><a v-bind:href="link" target="_blank">Google</a></p>
+        <p><a v-bind:href="link" target="_blank">Google</a></p> <!-- shorthand for v-bind > ":", ex. :href="" -->
         <p v-html="fullLink"></p>
         
         <hr>
 
-        <button v-on:click="counter++">Increase 1</button>
+        <button v-on:click="counter++">Increase 1</button> <!-- shorthand for v-on > "@", ex. @click="" -->
         <button v-on:click="counter--">Decrease 1</button>
         <button v-on:click="counter2++">Increase 2</button>
         <button v-on:click="counter2--">Decrease 2</button>

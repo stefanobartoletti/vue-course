@@ -29,7 +29,7 @@ new Vue({
     watch: { // Execute code on data changes (run asynchronously)
 
       counter: function(value) {
-        var vm = this;
+        var vm = this; // must use because callback closure function
         setTimeout( function() {
           vm.counter = 0;
         }, 2000);
