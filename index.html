@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS</title>
     
-    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
 </head>
 
 <body>   
@@ -18,10 +18,17 @@
         
         <hr>
 
-        <button v-on:click="increase(2, $event)">Click me</button>
-        <p>{{ counter }}</p>
-        <p>{{ counter * 2 }}</p>
-        <p>{{ counter > 10 ? 'Greater than 10' : 'Lesser than 10' }}</p>
+        <button v-on:click="counter++">Increase 1</button>
+        <button v-on:click="counter--">Decrease 1</button>
+        <button v-on:click="counter2++">Increase 2</button>
+        <button v-on:click="counter2--">Decrease 2</button>
+        <p>Counter : {{ counter }} | {{ counter2 }}</p>
+        
+        <p>Counter 1 Result: {{ result() }}</p>
+        <p>Counter 1 Output: {{ output }}</p>
+
+        <hr>
+
         <p v-on:mousemove="updateCoordinates">
             Coordinates: {{ x }} / {{ y }} - 
             <span v-on:mousemove.stop>DEAD SPOT</span>
