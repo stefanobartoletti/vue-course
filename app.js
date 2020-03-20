@@ -24,7 +24,14 @@ new Vue({
       output: function() {
         console.log('Computed');
         return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
-      }
+      },
+
+      divClasses: function() {
+        return {
+          red: this.attachRed,
+          blue: !this.attachRed,
+        }
+      },
 
     },
 
