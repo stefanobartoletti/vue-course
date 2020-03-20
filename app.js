@@ -1,7 +1,7 @@
 new Vue({
-    el: '#app',
+    el: '#app',  // Connect Vue to DOM
 
-    data: {
+    data: { // Store data (variables) to use in app
 
         title: 'Hello World!',
         link: 'https://www.google.com',
@@ -17,17 +17,27 @@ new Vue({
 
     },
 
-    computed: {
+    computed: { // Computed variables (similar to "cached" computed data; run synchronously)
 
       output: function() {
         console.log('Computed');
         return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
       }
 
+    },
+
+    watch: { // Execute code on data changes (run asynchronously)
+
+      counter: function(value) {
+        var vm = this;
+        setTimeout( function() {
+          vm.counter = 0;
+        }, 2000);
+      }
 
     },
 
-    methods: {
+    methods: { // Methods  of this Vue instance
 
       sayHello: function() {
         this.title = 'Hello!'
