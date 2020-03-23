@@ -16,6 +16,7 @@ new Vue({
         name: 'Stefano',
 
         attachRed: false,
+        color: 'green',
 
     },
 
