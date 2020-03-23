@@ -49,6 +49,7 @@
             <div class="square" :class="[color, {'red': attachRed}]"></div> <!-- set classes with property and name -->
             <div class="square" :style="{backgroundColor: color}"></div> <!-- set style directly with properties -->
             <div class="square" :style="myStyle"></div> <!-- set style with computed object -->
+            <div class="square" :style="[myStyle, {height: width + 'px'}]"></div> <!-- set style array -->
             <input type="text" v-model="color">
             <input type="text" v-model="width">
         </div>
