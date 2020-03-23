@@ -17,6 +17,7 @@ new Vue({
 
         attachRed: false,
         color: 'green',
+        width: 100,
 
     },
 
@@ -31,6 +32,13 @@ new Vue({
         return {
           red: this.attachRed,
           blue: !this.attachRed,
+        }
+      },
+
+      myStyle: function() {
+        return {
+          backgroundColor: this.color,
+          width: this.width + 'px',
         }
       },
 
