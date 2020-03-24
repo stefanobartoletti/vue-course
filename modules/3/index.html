@@ -12,10 +12,12 @@
 <body>   
     
     <div id="app">
-        <p v-if="show">You can see me</p>
-        <p v-else>Now you see me</p>
+        <p v-if="show">Paragraph 1</p>
+        <p v-else-if="show2">Paragraph 2</p>
+        <p v-else>Paragraph 3</p>
         <p>Do you also see me?</p>     
-        <button @click="show = !show">Switch</button>          
+        <button @click="show = !show">Switch 1 <span v-if="show">ON</span><span v-else>OFF</span></button>          
+        <button @click="show2 = !show2">Switch 2 <span v-if="show2">ON</span><span v-else>OFF</span></button>                
     </div>
 
     <script src="app.js"></script>
