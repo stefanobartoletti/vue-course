@@ -12,7 +12,7 @@
 <body>   
     
     <div id="app">
-        <p v-if="show">Paragraph 1</p>
+        <p v-if="show">Paragraph 1</p> <!-- v-if completely removes elements from the DOM -->
         <p v-else-if="show2">Paragraph 2</p>
         <p v-else>Paragraph 3</p>
 
@@ -21,7 +21,7 @@
             <p>Inside template</p>
         </template>
 
-        <p>Do you also see me?</p>    
+        <p v-show="show">Do you also see me?</p> <!-- v-show adds "display: none" to elements -->   
 
         <button @click="show = !show">Switch 1 <span v-if="show">ON</span><span v-else>OFF</span></button>          
         <button @click="show2 = !show2">Switch 2 <span v-if="show2">ON</span><span v-else>OFF</span></button>                
