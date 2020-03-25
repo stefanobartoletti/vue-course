@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>   
+    
+    <div id="app">
+        <p v-if="show">Paragraph 1</p> <!-- v-if completely removes elements from the DOM -->
+        <p v-else-if="show2">Paragraph 2</p>
+        <p v-else>Paragraph 3</p>
+
+        <template v-if="show">
+            <h1>Heading</h1>
+            <p>Inside template</p>
+        </template>
+
+        <p v-show="show">Do you also see me?</p> <!-- v-show adds "display: none" to elements -->   
+
+        <button @click="show = !show">Switch 1 <span v-if="show">ON</span><span v-else>OFF</span></button>          
+        <button @click="show2 = !show2">Switch 2 <span v-if="show2">ON</span><span v-else>OFF</span></button>   
+        
+        <hr>
+
+        <button @click="ingredients.push('spices')">Add New</button>
+        <ul>
+            <li v-for="ingredient in ingredients">{{ ingredient }}</li> <!-- loop through array -->
+        </ul>
+        <ul>
+            <li v-for="(ingredient, i) in ingredients" :key="ingredient">{{ ingredient }} ({{ i }})</li> <!-- (ingredient, i) extracts the array index; :key assigns a unique key IF NEEDED -->
+        </ul>
+
+        <template v-for="(ingredient, index) in ingredients"> <!-- use <template> to pass value to nested items -->
+            <p>{{ ingredient }}</p>
+            <p>({{ index }})</p>
+        </template> 
+
+        <hr>
+
+        <ul>
+            <li v-for="person in persons">{{ person.name }}</li> <!-- loop through object -->
+            <li v-for="person in persons">
+                <span v-for="value in person">{{ value }} </span> <!-- loop through parent loop (object properties) -->
+            </li>
+            <li v-for="person in persons">
+                <div v-for="(value, key, index) in person">{{ key }}: {{ value }} ({{ index }})</div> <!-- loop through parent loop (object properties, with key name and index number) -->
+            </li>
+        </ul>
+
+        <span v-for="n in 10">{{ n }} </span> <!-- loop through list of numbers -->
+
+
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
+
