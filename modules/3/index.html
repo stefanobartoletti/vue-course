@@ -29,11 +29,24 @@
         <hr>
 
         <ul>
+            <li v-for="ingredient in ingredients">{{ ingredient }}</li> <!-- loop through array -->
             <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li> <!-- (ingredient, i) extracts the array index -->
             <template v-for="(ingredient, index) in ingredients"> <!-- use <template> to pass value to nested items -->
                 <p>{{ ingredient }}</p>
                 <p>({{ index }})</p>
             </template> 
+        </ul>
+
+        <hr>
+
+        <ul>
+            <li v-for="person in persons">{{ person.name }}</li> <!-- loop through object -->
+            <li v-for="person in persons">
+                <span v-for="value in person">{{ value }} </span> <!-- loop through parent loop (object properties) -->
+            </li>
+            <li v-for="person in persons">
+                <div v-for="(value, key, index) in person">{{ key }}: {{ value }} ({{ index }})</div> <!-- loop through parent loop (object properties, with key name and index number) -->
+            </li>
         </ul>
 
 
