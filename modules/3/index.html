@@ -29,7 +29,7 @@
         <hr>
 
         <ul>
-            <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+            <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li> <!-- (ingredient, i) extracts the array index -->
         </ul>
 
 
