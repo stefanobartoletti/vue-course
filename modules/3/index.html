@@ -28,14 +28,18 @@
         
         <hr>
 
+        <button @click="ingredients.push('spices')">Add New</button>
         <ul>
             <li v-for="ingredient in ingredients">{{ ingredient }}</li> <!-- loop through array -->
-            <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li> <!-- (ingredient, i) extracts the array index -->
-            <template v-for="(ingredient, index) in ingredients"> <!-- use <template> to pass value to nested items -->
-                <p>{{ ingredient }}</p>
-                <p>({{ index }})</p>
-            </template> 
         </ul>
+        <ul>
+            <li v-for="(ingredient, i) in ingredients" :key="ingredient">{{ ingredient }} ({{ i }})</li> <!-- (ingredient, i) extracts the array index; :key assigns a unique key IF NEEDED -->
+        </ul>
+
+        <template v-for="(ingredient, index) in ingredients"> <!-- use <template> to pass value to nested items -->
+            <p>{{ ingredient }}</p>
+            <p>({{ index }})</p>
+        </template> 
 
         <hr>
 
