@@ -24,7 +24,16 @@
         <p v-show="show">Do you also see me?</p> <!-- v-show adds "display: none" to elements -->   
 
         <button @click="show = !show">Switch 1 <span v-if="show">ON</span><span v-else>OFF</span></button>          
-        <button @click="show2 = !show2">Switch 2 <span v-if="show2">ON</span><span v-else>OFF</span></button>                
+        <button @click="show2 = !show2">Switch 2 <span v-if="show2">ON</span><span v-else>OFF</span></button>   
+        
+        <hr>
+
+        <ul>
+            <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+        </ul>
+
+
+
     </div>
 
     <script src="app.js"></script>

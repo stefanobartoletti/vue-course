@@ -6,6 +6,13 @@ new Vue({
         show: true,
         show2: true,
 
+        ingredients: ['meat', 'fruit', 'cookies'],
+        persons: [
+            {name: 'Kirk', age: 35, color: 'yellow'},
+            {name: 'Spock', age: 40, color: 'blue'}
+        ]
+
+
     },
 
     computed: { 
