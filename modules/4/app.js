@@ -24,21 +24,26 @@ new Vue({
             this.playerHealth = 100;
             this.monsterHealth = 100;
         },
-        attack: function(){
+        attack: function() {
             this.monsterHealth -= this.calculateDamage(3, 10);
             if (this.checkWin()) { return; }
             this.monsterAttack();
         },
-        specialAttack: function(){
+        specialAttack: function() {
             this.monsterHealth -= this.calculateDamage(10, 20);
             if (this.checkWin()) { return; }
             this.monsterAttack();
         },
-        heal: function(){
-
+        heal: function() {
+            if (this.playerHealth <= 90) {
+                this.playerHealth += 10;    
+            } else {
+                this.playerHealth = 100;
+            }
+            this.monsterAttack();
         },
-        giveUp: function(){
-
+        giveUp: function() {
+            this.gameIsRunning = false;
         },
 
         monsterAttack: function() {
