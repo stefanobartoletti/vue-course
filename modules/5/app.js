@@ -1,4 +1,4 @@
-new Vue({
+var vm1 = new Vue({
   el: '#app1',
   data: {
     title: 'The VueJS Instance',
@@ -25,10 +25,19 @@ new Vue({
   }
 });
 
-new Vue({
+var vm2 = new Vue({
   el: '#app2',
   data: {
     title: 'The Second VueJS Instance',
   },
+  methods: {
+    onChange: function() {
+      vm1.title = 'Changed title from Vue 2!' // access code from another Vue instance
+    }
+  }
 
 });
+
+setTimeout( function() {
+  vm1.title = 'Changed by timer!' // access code frou outside a Vue instance
+}, 3000)
