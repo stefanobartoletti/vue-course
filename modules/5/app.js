@@ -39,5 +39,6 @@ var vm2 = new Vue({
 });
 
 setTimeout( function() {
-  vm1.title = 'Changed by timer!' // access code frou outside a Vue instance
+  vm1.title = 'Changed by timer!'; // access code frou outside a Vue instance
+  vm1.show();
 }, 3000)
