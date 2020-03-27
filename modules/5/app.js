@@ -1,9 +1,11 @@
+var externalData = {
+  title: 'The VueJS Instance',
+  showParagraph: false
+};
+
 var vm1 = new Vue({
   el: '#app1',
-  data: {
-    title: 'The VueJS Instance',
-    showParagraph: false
-  },
+  data: externalData, // it is possible to access external data and use it from within Vue
   methods: {
     show: function() {
       this.showParagraph = true;
