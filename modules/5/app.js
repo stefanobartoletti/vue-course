@@ -3,6 +3,10 @@ var externalData = {
   showParagraph: false
 };
 
+Vue.component('hello', {
+  template: '<h1>Hello! (component)</h1>'
+});
+
 var vm1 = new Vue({
   // el: '#app1',
   data: externalData, // it is possible to access external data and use it from within Vue
@@ -49,7 +53,7 @@ setTimeout( function() {
 }, 3000)
 
 var vm3 = new Vue({
-  template: '<h1>Hello!</h1>',
+  template: '<h1>Hello! (vm3)</h1>',
 });
 
 vm3.$mount('#app3');
