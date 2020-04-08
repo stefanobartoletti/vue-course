@@ -1,15 +1,9 @@
 <template>
-    <p>Status: {{ status }}</p>
+    <app-status></app-status>
 </template>
 
 <script>
-  export default {
-    data: function() {
-      return {
-        status: 'Critical'
-      }
-    }
-  }
+
 </script>
 
 <style>
