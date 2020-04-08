@@ -1,10 +1,14 @@
 <template>
-    <h1>Hello Vue!</h1>
+    <p>Status: {{ status }}</p>
 </template>
 
 <script>
   export default {
-    
+    data: function() {
+      return {
+        status: 'Critical'
+      }
+    }
   }
 </script>
 
