@@ -3,7 +3,7 @@
         <app-header></app-header>
         <hr>
         <div class="row">
-            <app-servers></app-servers>
+            <servers></servers>
             <app-server-details></app-server-details>
         </div>
         <hr>
@@ -19,8 +19,8 @@
 
     export default {
         components: {
-            'app-header': Header,
-            'app-servers': Servers,
+            appHeader: Header, // camelcase can be used, it can be accessed also with dash
+            Servers, // ES6 creates a pair
             'app-server-details': ServerDetails,
             'app-footer': Footer
         }
