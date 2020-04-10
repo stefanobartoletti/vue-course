@@ -10,6 +10,8 @@
 </template>
 
 <script>
+    import { eventBus } from '../main';
+
     export default {
         props: { // 'props' gets data from parent item, passed with v-bind
             myName: {
@@ -27,6 +29,11 @@
                 this.myName = 'Bilbo';
                 this.$emit('nameWasReset', this.myName); // emits a custom event to pass the new value to the parent 
             }
+        },
+        created() {
+            eventBus.$on('ageWasEdited', (age) => {
+                this.userAge = age;
+            });
         }
     }
 </script>

@@ -4,6 +4,7 @@
         <p>I'm an awesome User!</p>
         <button @click="changeName">Change my name</button>
         <p>Name is {{ name }}</p>
+        <p>Age is {{ age }}</p>
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
