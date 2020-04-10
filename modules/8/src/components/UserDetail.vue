@@ -2,13 +2,18 @@
     <div class="component">
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
-        <p>User Name: {{ name }}</p>
+        <p>User Name: {{ reverseName() }}</p>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['name'] // 'props' gets data from parent item, passed with v-bind
+        props: ['myName'], // 'props' gets data from parent item, passed with v-bind
+        methods : {
+            reverseName() {
+                return this.myName.split('').reverse().join(''); // props can be used like data in functions
+            }
+        }
     }
 </script>
 

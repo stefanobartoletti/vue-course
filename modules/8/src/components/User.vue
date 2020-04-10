@@ -6,7 +6,7 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :name="name"></app-user-detail> <!-- v-bind to pass data to child components -->
+                <app-user-detail :myName="name"></app-user-detail> <!-- v-bind to pass data to child components -->
             </div>
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
