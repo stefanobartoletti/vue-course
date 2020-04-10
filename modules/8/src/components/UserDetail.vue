@@ -3,6 +3,7 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p>User Name: {{ reverseName() }}</p>
+        <p>User Age: {{ userAge }}</p>
         <button @click="resetName">Reset Name (event)</button>
         <button @click="resetFn()">Reset Name (callback)</button>
     </div>
@@ -15,9 +16,8 @@
                 type: String, // Validate data by accepting only selected type
                 required: true,
             },
-            resetFn: {
-                type: Function,
-            }
+            resetFn: Function,
+            userAge: Number,
         },
         methods : {
             reverseName() {

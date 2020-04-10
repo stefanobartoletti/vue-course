@@ -11,10 +11,14 @@
                     :myName="name"
                     @nameWasReset="name = $event"
                     :resetFn="resetName"
+                    :userAge="age"
                 ></app-user-detail> <!-- v-bind to pass data to child components // v-on to listen to custom events passed by child elements -->
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit 
+                    :userAge="age"
+                    @ageWasEdited="age = $event"
+                ></app-user-edit>
             </div>
         </div>
     </div>
@@ -28,6 +32,7 @@
         data: function() {
             return {
                 name: 'Bilbo',
+                age: 27,
             };
         },
         methods: {
