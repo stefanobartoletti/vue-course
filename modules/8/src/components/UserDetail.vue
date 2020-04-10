@@ -8,7 +8,12 @@
 
 <script>
     export default {
-        props: ['myName'], // 'props' gets data from parent item, passed with v-bind
+        props: { // 'props' gets data from parent item, passed with v-bind
+            myName: {
+                type: String, // Validate data by accepting only selected type
+                required: true,
+            }
+        },
         methods : {
             reverseName() {
                 return this.myName.split('').reverse().join(''); // props can be used like data in functions
