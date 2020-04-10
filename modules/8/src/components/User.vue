@@ -3,10 +3,11 @@
         <h1>The User Component</h1>
         <p>I'm an awesome User!</p>
         <button @click="changeName">Change my name</button>
+        <p>Name is {{ name }}</p>
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :myName="name"></app-user-detail> <!-- v-bind to pass data to child components -->
+                <app-user-detail :myName="name" @nameWasReset="name = $event"></app-user-detail> <!-- v-bind to pass data to child components // v-on to listen to custom events passed by child elements -->
             </div>
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
