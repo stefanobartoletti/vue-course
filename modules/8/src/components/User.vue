@@ -7,7 +7,11 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :myName="name" @nameWasReset="name = $event"></app-user-detail> <!-- v-bind to pass data to child components // v-on to listen to custom events passed by child elements -->
+                <app-user-detail 
+                    :myName="name"
+                    @nameWasReset="name = $event"
+                    :resetFn="resetName"
+                ></app-user-detail> <!-- v-bind to pass data to child components // v-on to listen to custom events passed by child elements -->
             </div>
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
@@ -30,6 +34,9 @@
             changeName() {
                 this.name = 'Frodo';
             },
+            resetName() {
+                this.name = 'Bilbo';
+            }
         },
         components: {
             appUserDetail: UserDetail,

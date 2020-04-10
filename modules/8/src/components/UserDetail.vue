@@ -3,7 +3,8 @@
         <h3>You may view the User Details here</h3>
         <p>Many Details</p>
         <p>User Name: {{ reverseName() }}</p>
-        <button @click="resetName">Reset Name</button>
+        <button @click="resetName">Reset Name (event)</button>
+        <button @click="resetFn()">Reset Name (callback)</button>
     </div>
 </template>
 
@@ -13,6 +14,9 @@
             myName: {
                 type: String, // Validate data by accepting only selected type
                 required: true,
+            },
+            resetFn: {
+                type: Function,
             }
         },
         methods : {
