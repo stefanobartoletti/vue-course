@@ -1,6 +1,6 @@
 <template>
     <div>
-        <slot></slot>
+        <slot></slot><!-- style can also be defined here for inherited elements -->
     </div>
 </template>
 
@@ -18,6 +18,10 @@ export default {
         padding: 30px;
         margin: 30px auto;
         text-align: center;
+    }
+
+    h2 {
+        color: red;
     }
 
 </style>
