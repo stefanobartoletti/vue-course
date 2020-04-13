@@ -2,6 +2,7 @@
     <div>
         <div class="title">
             <slot name="title"></slot>  
+            <span><slot name="subtitle">The subtitle</slot></span>
         </div>
         <hr>
         <div>
@@ -33,6 +34,10 @@ export default {
 
     .title {
         font-style: italic;
+    }
+
+    .title span {
+        color: #ccc;
     }
 
 </style>
