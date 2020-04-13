@@ -1,6 +1,13 @@
 <template>
     <div>
-        <slot></slot><!-- style can also be defined here for inherited elements -->
+        <div class="title">
+            <slot name="title"></slot>  
+        </div>
+        <hr>
+        <div>
+            <slot name="content"></slot>  
+        </div>
+        <!-- style can also be defined here for inherited elements -->
     </div>
 </template>
 
@@ -22,6 +29,10 @@ export default {
 
     h2 {
         color: red;
+    }
+
+    .title {
+        font-style: italic;
     }
 
 </style>
