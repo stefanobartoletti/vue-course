@@ -20,8 +20,8 @@
                                 type="password"
                                 id="password"
                                 class="form-control"
-                                v-model="userData.password"
-                        >
+                                v-model.lazy="userData.password"
+                        > <!-- '.lazy' method on 'v-model' syncs input with data only after input field loses focus -->
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
