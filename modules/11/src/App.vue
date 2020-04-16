@@ -12,7 +12,7 @@
                                 id="email"
                                 class="form-control"
                                 v-model="userData.email"
-                        >
+                                >
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -21,7 +21,7 @@
                                 id="password"
                                 class="form-control"
                                 v-model.lazy="userData.password"
-                        > <!-- '.lazy' method on 'v-model' syncs input with data only after input field loses focus -->
+                                > <!-- '.lazy' method on 'v-model' syncs input with data only after input field loses focus -->
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
@@ -30,7 +30,7 @@
                                 id="age"
                                 class="form-control"
                                 v-model="userData.age"
-                        >
+                                >
                     </div>
 
                 </div>
@@ -54,14 +54,18 @@
                             <input
                                     type="checkbox"
                                     id="sendmail"
-                                    value="SendMail"> Send Mail
-                        </label>
+                                    value="SendMail"
+                                    v-model="sendMail"
+                                    > Send Mail
+                        </label> 
                         <label for="sendInfomail">
                             <input
                                     type="checkbox"
                                     id="sendInfomail"
-                                    value="SendInfoMail"> Send Infomail
-                        </label>
+                                    value="SendInfoMail"
+                                    v-model="sendMail"
+                                    > Send Infomail
+                        </label> <!-- these two checkboxes are bound to the same array and push their value into it -->
                     </div>
 
                 </div>
@@ -115,7 +119,7 @@
                         <p style="white-space: pre">Message: {{ message }}</p>
                         <p><strong>Send Mail?</strong></p>
                         <ul>
-                            <li></li>
+                            <li v-for="selectedMail in sendMail">{{ selectedMail }}</li>
                         </ul>
                         <p>Gender:</p>
                         <p>Priority:</p>
@@ -137,6 +141,7 @@
                     age: 27,
                 },
                 message: 'A short text',
+                sendMail: [] // array is populated by all corresponding checkoxe inputs
             }
         }
     }
