@@ -10,6 +10,64 @@
                     <!-- Password -->
                     <!-- Store Data? Yes/No -->
 
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input
+                                type="text"
+                                id="firstname"
+                                class="form-control"
+                                v-model="userData.firstName"
+                                >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input
+                                type="text"
+                                id="lastname"
+                                class="form-control"
+                                v-model="userData.lastName"
+                                >
+                    </div>   
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input
+                                type="email"
+                                id="email"
+                                class="form-control"
+                                v-model="userData.email"
+                                >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                                type="password"
+                                id="password"
+                                class="form-control"
+                                v-model="userData.password"
+                                >
+                    </div>
+
+                    <div class="form-group">
+                        Store in database: 
+                        <label for="storedata">Yes</label>
+                        <input
+                                type="radio"
+                                id="storedata"
+                                value="Yes"
+                                v-model="storeData"
+                                >
+                       <label for="storedatanot">No</label>
+                        <input
+                                type="radio"
+                                id="storedatanot"
+                                value="No"
+                                v-model="storeData"
+                                >
+                    </div>
+
                     <!-- Exercise 2 -->
                     <!-- Only display the Form if it has NOT been submitted -->
                     <!-- Display the Data Summary ONCE the Form HAS been submitted -->
@@ -28,10 +86,10 @@
                         <h4>Your Data</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Full Name: </p>
-                        <p>Mail: </p>
-                        <p>Password: </p>
-                        <p>Store in Database?: </p>
+                        <p>Full Name: {{userData.firstName + ' ' + userData.lastName}}</p>
+                        <p>Mail: {{userData.email}}</p>
+                        <p>Password: {{userData.password}}</p>
+                        <p>Store in Database?: {{storeData}}</p>
                     </div>
                 </div>
             </div>
@@ -41,6 +99,17 @@
 
 <script>
     export default {
+        data() {
+            return {
+                userData: {
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    password: '',
+                },
+                storeData: 'Yes',
+            }
+        }
     }
 </script>
 
