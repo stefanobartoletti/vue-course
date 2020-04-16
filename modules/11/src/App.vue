@@ -11,8 +11,9 @@
                                 type="text"
                                 id="email"
                                 class="form-control"
-                                v-model="userData.email"
-                                >
+                                :value="userData.email"
+                                @input="userData.email = $event.target.value"
+                                > <!-- 'v-model' works by using 'v-bind' and 'v-on' directives behind the scenes, these can be used instead to create custom component -->
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
