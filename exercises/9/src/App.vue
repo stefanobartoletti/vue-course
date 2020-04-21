@@ -10,6 +10,7 @@
                     <!-- Password -->
                     <!-- Store Data? Yes/No -->
 
+                    <!-- 
                     <div class="form-group">
                         <label for="firstname">First Name</label>
                         <input
@@ -29,6 +30,9 @@
                                 v-model="userData.lastName"
                                 >
                     </div>   
+                    -->
+
+                    <app-fullname v-model="userData.fullName"></app-fullname>
 
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -75,6 +79,7 @@
                     <hr>
 
                     <button
+                            type="submit"
                             class="btn btn-primary"
                             @click.prevent="submitted"
                             >Submit!
@@ -94,7 +99,7 @@
                         <h4>Your Data</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Full Name: {{userData.firstName + ' ' + userData.lastName}}</p>
+                        <p>Full Name: {{ userData.fullName }}</p>
                         <p>Mail: {{userData.email}}</p>
                         <p>Password: {{userData.password}}</p>
                         <p>Store in Database?: {{storeData}}</p>
@@ -114,12 +119,15 @@
 </template>
 
 <script>
+    import FullName from './FullName.vue';
+
     export default {
         data() {
             return {
                 userData: {
-                    firstName: '',
-                    lastName: '',
+                    // firstName: '',
+                    // lastName: '',
+                    fullName: 'Bilbo Baggins',
                     email: '',
                     password: '',
                 },
@@ -135,6 +143,9 @@
                 this.formSubmitted = false;
             }
         },
+        components: {
+            appFullname: FullName,
+        }
     }
 </script>
 
