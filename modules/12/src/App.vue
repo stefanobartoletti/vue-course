@@ -12,7 +12,7 @@
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <h1>Custom Directives</h1>
                 <p v-highlight:background.delayed="'red'">Color this</p>
-                <p v-local-highlight:background.delayed="'red'">Color this too, but locally</p>
+                <p v-local-highlight:background.delayed.blink="'red'">Color this too, but locally</p>
             </div>
         </div>
     </div>
@@ -27,13 +27,34 @@
                     if (binding.modifiers['delayed']){
                     delay = 3000;
                     };
-                    setTimeout( () => {
-                    if (binding.arg == 'background') {
-                        el.style.backgroundColor = binding.value;
+                    if (binding.modifiers['delayed']){
+                        let primaryColor = binding.value;
+                        let secondaryColor = 'blue';
+                        let currentColor = primaryColor;
+                        setTimeout( () => {
+                            setInterval(() => {
+                                currentColor == secondaryColor ? currentColor = primaryColor : currentColor = secondaryColor;
+                                if (binding.arg == 'background') {
+                                    el.style.backgroundColor = currentColor;
+                                } else {
+                                    el.style.color = currentColor;
+                                }
+                            }, 1000)
+                            if (binding.arg == 'background') {
+                                el.style.backgroundColor = binding.value;
+                            } else {
+                                el.style.color = binding.value;
+                            }
+                        }, delay);
                     } else {
-                        el.style.color = binding.value;
+                        setTimeout( () => {
+                            if (binding.arg == 'background') {
+                                el.style.backgroundColor = binding.value;
+                            } else {
+                                el.style.color = binding.value;
+                            }
+                        }, delay);
                     }
-                    }, delay);
                 }
             }
         }
