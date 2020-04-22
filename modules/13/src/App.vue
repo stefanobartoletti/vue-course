@@ -35,7 +35,10 @@
         components: {
             appList: List,
         },
-        mixins: [ fruitMixin ] // Mixins can be used to externalize code which is common in multiple components, in order to avoid duplication; they can be used together with local data and functions.
+        mixins: [ fruitMixin ], // Mixins can be used to externalize code which is common in multiple components, in order to avoid duplication; they can be used together with local data and functions.
+        created() {
+            console.log('Created (app component)') // a component can add more code to imported mixins, and it will be executed afterwards; the component has "the last word", so it can override mixin code with local code.
+        }    
     }
 </script>
 
