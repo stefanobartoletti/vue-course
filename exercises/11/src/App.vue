@@ -16,6 +16,9 @@
 
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
+                <h2>Exercise 3</h2>
+                <p>{{ reverseName }}</p>
+                <p>{{ nameCount }}</p>
 
                 <!-- Exercise 4 -->
                 <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
@@ -36,6 +39,14 @@
                 return value.split("").reverse().join("");
             }
         },
+        computed: {
+            reverseName() {
+                return this.name.split("").reverse().join("");
+            },
+            nameCount() {
+                return this.name + " (" + this.name.length + ")";
+            }
+        }
     }
 </script>
 
