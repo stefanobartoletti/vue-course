@@ -6,6 +6,8 @@
                 <!-- Exercise 1) -->
                 <!-- Build a local Filter which reverses the Text it is applied on -->
 
+                <p>{{ name | reverseText }}</p>
+
                 <!-- Exercise 2 -->
                 <!-- Build a global Filter which counts the length of a word and it appends it -->
                 <!-- Like this: "Test" => Gets Filtered to => "Test (4)" -->
@@ -22,6 +24,16 @@
 
 <script>
     export default {
+        data() {
+            return {
+                name: "Bilbo Baggins"
+            }
+        },
+        filters: {
+            reverseText(value) {
+                return value.split("").reverse().join("");
+            }
+        },
     }
 </script>
 
