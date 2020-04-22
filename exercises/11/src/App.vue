@@ -22,12 +22,16 @@
 
                 <!-- Exercise 4 -->
                 <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
+                <h2>Exercise 4</h2>
+                <p>{{ countChars }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import { countChars } from './countChars';
+
     export default {
         data() {
             return {
@@ -46,7 +50,8 @@
             nameCount() {
                 return this.name + " (" + this.name.length + ")";
             }
-        }
+        },
+        mixins: [countChars]
     }
 </script>
 
