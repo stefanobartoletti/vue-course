@@ -5,6 +5,7 @@
                 <h1>Filters & Mixins</h1>
                 <p>{{ text | toUppercase | toLowercase }}</p> <!-- values are filtered with a pipe -->
                 <hr>
+                <button @click="fruits.push('Kiwi')">Add new item</button> <!-- Data is not shared with other call of the mixin, it is recreated locally -->
                 <input v-model="filterText">
                 <ul>
                     <li v-for="fruit in filteredFruits">{{fruit}}</li>
@@ -35,7 +36,7 @@
         components: {
             appList: List,
         },
-        mixins: [ fruitMixin ], // Mixins can be used to externalize code which is common in multiple components, in order to avoid duplication; they can be used together with local data and functions.
+        mixins: [ fruitMixin ], // Mixins can be used to externalize code which is common in multiple components, in order to avoid duplication; they can be used together with local data and functions. Only code is shared, not actual data, which is replicated for every call of the mixin. (see "Add new item" button)
         created() {
             console.log('Created (app component)') // a component can add more code to imported mixins, and it will be executed afterwards; the component has "the last word", so it can override mixin code with local code.
         }    
