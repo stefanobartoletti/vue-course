@@ -18,13 +18,13 @@
 
 <script>
     import List from './List.vue';
+    import { fruitMixin } from './fruitMixin';
+
 
     export default {
         data() {
             return {
                 text: 'Hello there!',
-                fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
-                filterText: '',
             }
         },
         filters: { // filters are used to modify how data is outputted/displayed, without changing it in the source. Filters are not a great choice from a performance point of view (must load the DOM to be applied), computed  properties are often a better solution
@@ -32,16 +32,10 @@
                 return value.toUpperCase();
             }
         },
-        computed: {
-            filteredFruits() {
-                return this.fruits.filter( (element) => {
-                    return element.match(this.filterText);
-                });
-            }
-        },
         components: {
             appList: List,
-        }
+        },
+        mixins: [ fruitMixin ] // Mixins can be used to externalize code which is common in multiple components, in order to avoid duplication; they can be used together with local data and functions.
     }
 </script>
 
