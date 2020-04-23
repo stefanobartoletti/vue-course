@@ -4,9 +4,14 @@
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <h1>Animations</h1>
                 <hr>
+                <select v-model="alertAnimation" class="form-control">
+                    <option value="fade">Fade</option>
+                    <option value="slide">Slide</option>
+                </select>
+                <br><br>
                 <button class="btn btn-primary" @click="show = !show">Show Alert</button>
                 <br><br>
-                <transition name="fade">
+                <transition :name="alertAnimation"> <!-- It is possible to bind both "name" and "type" attributes in order to dinamically set them -->
                     <div class="alert alert-info" v-show="show">This is some info</div> <!-- transitions can be used with bot "v-if" and "v-show" -->
                 </transition> 
                 <transition name="slide" type="animation"> <!-- "type" can be "animation" or "transition" and is used to let Vue know where to look for animation duration, if both "transition" and "animation" are used in the CSS -->
@@ -31,6 +36,7 @@
         data() {
             return {
                 show: true,
+                alertAnimation: 'fade',
             }
         }
     }
@@ -58,7 +64,7 @@
     }
     .slide-enter-active {
         animation: slide-in 1000ms ease-in-out forwards;
-        transition: opacity 1000ms;
+        transition: opacity 2000ms;
     }
     .slide-leave {
 
@@ -66,7 +72,7 @@
     .slide-leave-active {
         animation: slide-out 1000ms ease-in-out forwards;
         opacity: 0;
-        transition: opacity 1000ms;
+        transition: opacity 2000ms;
     }
 
     @keyframes slide-in {
