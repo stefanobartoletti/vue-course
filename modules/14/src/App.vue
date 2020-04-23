@@ -9,6 +9,9 @@
                 <transition name="fade">
                     <div class="alert alert-info" v-if="show">This is some info</div>
                 </transition> 
+                <transition name="slide">
+                    <div class="alert alert-info" v-if="show">This is some info</div>
+                </transition> 
             </div>
         </div>
     </div>
@@ -31,13 +34,45 @@
     }
     .fade-enter-active {
         /* opacity: 1; default value, not necessary */
-        transition: opacity 1s;
+        transition: opacity 500ms;
     }
     .fade-leave {
         /* opacity: 1; default value, not necessary */
     }
     .fade-leave-active {
         opacity: 0;
-        transition: opacity 1s;
+        transition: opacity 500ms;
     }
+
+    .slide-enter {
+
+    }
+    .slide-enter-active {
+        animation: slide-in 500ms ease-in-out forwards;
+    }
+    .slide-leave {
+
+    }
+    .slide-leave-active {
+        animation: slide-out 500ms ease-in-out forwards;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(20px);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slide-out {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(20px);
+        }
+    }
+
 </style>
