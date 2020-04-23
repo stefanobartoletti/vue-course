@@ -27,15 +27,17 @@
 <style>
     /* Vue automatically adds CSS classes to transitions; if name is not explicitly provided, they are named '.v-enter' and os on  */
     .fade-enter {
-    
+        opacity: 0;
     }
     .fade-enter-active {
-
+        /* opacity: 1; default value, not necessary */
+        transition: opacity 1s;
     }
     .fade-leave {
-        
+        /* opacity: 1; default value, not necessary */
     }
     .fade-leave-active {
-
+        opacity: 0;
+        transition: opacity 1s;
     }
 </style>
