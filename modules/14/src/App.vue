@@ -9,10 +9,16 @@
                 <transition name="fade">
                     <div class="alert alert-info" v-show="show">This is some info</div> <!-- transitions can be used with bot "v-if" and "v-show" -->
                 </transition> 
-                <transition name="slide" type="animation"> <!-- "type" can be "animation" or "transition" and is use dto let Vue know where to look for animation duration, if both "transition" and "animation" are used in the CSS -->
+                <transition name="slide" type="animation"> <!-- "type" can be "animation" or "transition" and is used to let Vue know where to look for animation duration, if both "transition" and "animation" are used in the CSS -->
                     <div class="alert alert-danger" v-if="show">This is some info</div>
                 </transition> 
-                <transition name="fade" appear> <!-- "appear" triggers the animation on the initial render of the element (usually when the DOM loads) -->
+                <transition 
+                    enter-class=""
+                    enter-active-class="animated shake"
+                    leave-class=""
+                    leave-active-class="animated bounce"
+                    appear 
+                > <!-- "appear" triggers the animation on the initial render of the element (usually when the DOM loads); "-class" attributes are used to set custom CSS classes instead of the Vue defaults, useful when using external libraries like animate.css -->
                     <div class="alert alert-success" v-if="show">This is some info</div>
                 </transition> 
             </div>
