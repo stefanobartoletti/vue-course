@@ -9,7 +9,7 @@
                 <transition name="fade">
                     <div class="alert alert-info" v-if="show">This is some info</div>
                 </transition> 
-                <transition name="slide">
+                <transition name="slide" type="animation"> <!-- "type" can be "animation" or "transition" and is use dto let Vue know where to look for animation duration, if both "transition" and "animation" are used in the CSS -->
                     <div class="alert alert-info" v-if="show">This is some info</div>
                 </transition> 
             </div>
@@ -45,16 +45,19 @@
     }
 
     .slide-enter {
-
+        opacity: 0;
     }
     .slide-enter-active {
         animation: slide-in 500ms ease-in-out forwards;
+        transition: opacity 500ms;
     }
     .slide-leave {
 
     }
     .slide-leave-active {
         animation: slide-out 500ms ease-in-out forwards;
+        opacity: 0;
+        transition: opacity 500ms;
     }
 
     @keyframes slide-in {
