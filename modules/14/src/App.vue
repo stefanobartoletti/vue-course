@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" @click="show = !show">Show Alert</button>
                 <br><br>
                 <transition name="fade">
-                    <div class="alert alert-info" v-if="show">This is some info</div>
+                    <div class="alert alert-info" v-show="show">This is some info</div> <!-- transitions can be used with bot "v-if" and "v-show" -->
                 </transition> 
                 <transition name="slide" type="animation"> <!-- "type" can be "animation" or "transition" and is use dto let Vue know where to look for animation duration, if both "transition" and "animation" are used in the CSS -->
                     <div class="alert alert-info" v-if="show">This is some info</div>
