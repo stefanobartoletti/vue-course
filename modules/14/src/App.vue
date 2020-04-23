@@ -6,7 +6,7 @@
                 <hr>
                 <button class="btn btn-primary" @click="show = !show">Show Alert</button>
                 <br><br>
-                <transition>
+                <transition name="fade">
                     <div class="alert alert-info" v-if="show">This is some info</div>
                 </transition> 
             </div>
@@ -25,5 +25,17 @@
 </script>
 
 <style>
+    /* Vue automatically adds CSS classes to transitions; if name is not explicitly provided, they are named '.v-enter' and os on  */
+    .fade-enter {
+    
+    }
+    .fade-enter-active {
 
+    }
+    .fade-leave {
+        
+    }
+    .fade-leave-active {
+
+    }
 </style>
