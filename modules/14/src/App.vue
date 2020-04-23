@@ -10,7 +10,10 @@
                     <div class="alert alert-info" v-show="show">This is some info</div> <!-- transitions can be used with bot "v-if" and "v-show" -->
                 </transition> 
                 <transition name="slide" type="animation"> <!-- "type" can be "animation" or "transition" and is use dto let Vue know where to look for animation duration, if both "transition" and "animation" are used in the CSS -->
-                    <div class="alert alert-info" v-if="show">This is some info</div>
+                    <div class="alert alert-danger" v-if="show">This is some info</div>
+                </transition> 
+                <transition name="fade" appear> <!-- "appear" triggers the animation on the initial render of the element (usually when the DOM loads) -->
+                    <div class="alert alert-success" v-if="show">This is some info</div>
                 </transition> 
             </div>
         </div>
@@ -21,7 +24,7 @@
     export default {
         data() {
             return {
-                show: false,
+                show: true,
             }
         }
     }
@@ -34,30 +37,30 @@
     }
     .fade-enter-active {
         /* opacity: 1; default value, not necessary */
-        transition: opacity 500ms;
+        transition: opacity 1000ms;
     }
     .fade-leave {
         /* opacity: 1; default value, not necessary */
     }
     .fade-leave-active {
         opacity: 0;
-        transition: opacity 500ms;
+        transition: opacity 1000ms;
     }
 
     .slide-enter {
         opacity: 0;
     }
     .slide-enter-active {
-        animation: slide-in 500ms ease-in-out forwards;
-        transition: opacity 500ms;
+        animation: slide-in 1000ms ease-in-out forwards;
+        transition: opacity 1000ms;
     }
     .slide-leave {
 
     }
     .slide-leave-active {
-        animation: slide-out 500ms ease-in-out forwards;
+        animation: slide-out 1000ms ease-in-out forwards;
         opacity: 0;
-        transition: opacity 500ms;
+        transition: opacity 1000ms;
     }
 
     @keyframes slide-in {
