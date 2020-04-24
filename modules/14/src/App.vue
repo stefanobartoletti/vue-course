@@ -4,19 +4,26 @@
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <h1>Animations</h1>
                 <hr>
+
                 <select v-model="alertAnimation" class="form-control">
                     <option value="fade">Fade</option>
                     <option value="slide">Slide</option>
                 </select>
+
                 <br><br>
+
                 <button class="btn btn-primary" @click="show = !show">Show Alert</button>
+
                 <br><br>
+
                 <transition :name="alertAnimation"> <!-- It is possible to bind both "name" and "type" attributes in order to dinamically set them -->
                     <div class="alert alert-info" v-show="show">This is some info</div> <!-- transitions can be used with bot "v-if" and "v-show" -->
                 </transition> 
+
                 <transition name="slide" type="animation"> <!-- "type" can be "animation" or "transition" and is used to let Vue know where to look for animation duration, if both "transition" and "animation" are used in the CSS -->
                     <div class="alert alert-danger" v-if="show">This is some info</div>
                 </transition> 
+
                 <transition 
                     enter-class=""
                     enter-active-class="animated shake"
@@ -26,6 +33,15 @@
                 > <!-- "appear" triggers the animation on the initial render of the element (usually when the DOM loads); "-class" attributes are used to set custom CSS classes instead of the Vue defaults, useful when using external libraries like animate.css -->
                     <div class="alert alert-success" v-if="show">This is some info</div>
                 </transition> 
+
+                <transition :name="alertAnimation" mode="out-in"> 
+                    <div class="alert alert-info" v-if="show" key="info">This is some info</div>
+                    <div class="alert alert-warning" v-else key="warning">This is some warning</div>
+                    <!-- "key" and "mode" (on parent transition) attributes are used by Vue to correctly transition between more elements -->
+                </transition> 
+
+                
+
             </div>
         </div>
     </div>
