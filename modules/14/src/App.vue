@@ -57,7 +57,7 @@
                     @leave-cancelled="leaveCancelled"
                     :css="false"
                 > <!-- ':css="false"' binding tells Vue to not detect any CSS transition classes, both custom named or builtin "v-" ones; useful when dealing with Javscript only transitions -->
-                    <div style="width: 100px; height: 100px; background-color: lightgreen" v-if="load"></div>
+                    <div style="width: 300px; height: 100px; background-color: lightgreen" v-if="load"></div>
                 </transition>
                 
 
@@ -70,18 +70,30 @@
     export default {
         data() {
             return {
-                show: true,
+                show: false,
                 alertAnimation: 'fade',
                 load: true,
+                elementWidth: 100,
             }
         },
         methods: {
             beforeEnter(el) {
                 console.log("Before enter hook");
+                this.elementWidth = 100;
+                el.style.width = this.elementWidth + 'px';
             },
             enter(el, done) {
                 console.log("Enter Hook");
-                done(); // the "done" callback is required to tell Vue when the transition is finished; it can be omitted if CSS timings are present;
+                let round = 1;
+                const interval = setInterval( () => {
+                    el.style.width = (this.elementWidth + round * 10) + 'px';
+                    round++;
+                    if (round > 20) {
+                        clearInterval(interval);
+                        done();
+                    }
+                }, 20);
+                // the "done" callback is required to tell Vue when the transition is finished; it can be omitted if CSS timings are present;
             },
             afterEnter(el) {
                 console.log("After enter hook");
@@ -91,10 +103,20 @@
             },
             beforeLeave(el) {
                 console.log("Before leave hook");
+                this.elementWidth = 300;
+                el.style.width = this.elementWidth + 'px';
             },
             leave(el, done) {
                 console.log("Leave Hook");
-                done();
+                let round = 1;
+                const interval = setInterval( () => {
+                    el.style.width = (this.elementWidth - round * 10) + 'px';
+                    round++;
+                    if (round > 20) {
+                        clearInterval(interval);
+                        done();
+                    }
+                }, 20);
             },
             afterLeave(el) {
                 console.log("After leave hook");
