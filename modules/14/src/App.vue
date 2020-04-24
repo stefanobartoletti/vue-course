@@ -55,7 +55,8 @@
                     @leave="leave"
                     @after-leave="afterLeave"
                     @leave-cancelled="leaveCancelled"
-                >
+                    :css="false"
+                > <!-- ':css="false"' binding tells Vue to not detect any CSS transition classes, both custom named or builtin "v-" ones; useful when dealing with Javscript only transitions -->
                     <div style="width: 100px; height: 100px; background-color: lightgreen" v-if="load"></div>
                 </transition>
                 
