@@ -40,6 +40,24 @@
                     <!-- "key" and "mode" (on parent transition) attributes are used by Vue to correctly transition between more elements -->
                 </transition> 
 
+                <hr>
+
+                <button class="btn btn-primary" @click="load = !load">Load / Remove</button>
+                <br><br>
+
+                <transition
+                    @before-enter="beforeEnter"
+                    @enter="enter"
+                    @after-enter="afterEnter"
+                    @enter-cancelled="enterCancelled"
+
+                    @before-leave="beforeLeave"
+                    @leave="leave"
+                    @after-leave="afterLeave"
+                    @leave-cancelled="leaveCancelled"
+                >
+                    <div style="width: 100px; height: 100px; background-color: lightgreen" v-if="load"></div>
+                </transition>
                 
 
             </div>
@@ -53,7 +71,36 @@
             return {
                 show: true,
                 alertAnimation: 'fade',
+                load: true,
             }
+        },
+        methods: {
+            beforeEnter(el) {
+                console.log("Before enter hook");
+            },
+            enter(el, done) {
+                console.log("Enter Hook");
+                done(); // the "done" callback is required to tell Vue when the transition is finished; it can be omitted if CSS timings are present;
+            },
+            afterEnter(el) {
+                console.log("After enter hook");
+            },
+            enterCancelled(el) {
+                console.log("Enter cancelled hook");
+            },
+            beforeLeave(el) {
+                console.log("Before leave hook");
+            },
+            leave(el, done) {
+                console.log("Leave Hook");
+                done();
+            },
+            afterLeave(el) {
+                console.log("After leave hook");
+            },
+            leaveCancelled(el) {
+                console.log("Leave cancelled hook");
+            },
         }
     }
 </script>
