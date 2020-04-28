@@ -29,7 +29,12 @@
         },
         methods: {
             submit() {
-                console.log(this.user);
+                this.$http.post('https://sb-vue-test.firebaseio.com/lesson15data.json', this.user)
+                    .then(response  => {
+                        console.log(response)
+                    }, error => {
+                        console.log(error)
+                    });
             }
         }
     }
