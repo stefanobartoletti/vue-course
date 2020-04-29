@@ -6,6 +6,13 @@ Vue.use(VueResource);
 
 // vue-resource options
 Vue.http.options.root = 'https://sb-vue-test.firebaseio.com/lesson15data.json';
+Vue.http.interceptors.push((request, next) => {
+  console.log(request);
+  if (request.method == 'POST') {
+    request.method = 'PUT';
+  }
+  next();
+});
 
 new Vue({
   el: '#app',
