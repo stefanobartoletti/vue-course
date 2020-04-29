@@ -42,7 +42,8 @@
                 //     }, error => {
                 //         console.log(error)
                 //     });
-                this.resource.save({}, this.user);
+                // this.resource.save({}, this.user);
+                this.resource.saveAlt(this.user);
             },
             fetchData() {
                 this.$http.get('lesson15data.json') // URL set globally in vue-resource options
@@ -59,7 +60,10 @@
             }
         },
         created() {
-            this.resource = this.$resource('lesson15data.json')
+            const customActions = {
+                saveAlt: { method: 'POST', url: 'lesson15alt.json'}
+            }
+            this.resource = this.$resource('lesson15data.json', {}, customActions)
         }
     }
 </script>
