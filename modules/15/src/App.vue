@@ -13,7 +13,10 @@
                 </div>
                 <button class="btn btn-primary" @click="submit">Submit</button>
                 <hr>
+                <input type="text" class="form-control" v-model="node">
+                <br><br>    
                 <button class="btn btn-primary" @click="fetchData">Fetch Data</button>
+                <br><br>
                 <ul class="list-group">
                     <li class="list-group-item" v-for="u in users">{{ u.username }} - {{ u.email }}</li>
                 </ul>
@@ -32,6 +35,7 @@
                 },
                 users: [],
                 resource: {},
+                node: 'lesson15data'
             }
         },
         methods: {
@@ -46,7 +50,18 @@
                 this.resource.saveAlt(this.user);
             },
             fetchData() {
-                this.$http.get('lesson15data.json') // URL set globally in vue-resource options
+                // this.$http.get('lesson15data.json') // URL set globally in vue-resource options
+                //     .then(response => {
+                //         return response.json();
+                //     })
+                //     .then(data => {
+                //         const resultArray = [];
+                //         for (let key in data) {
+                //             resultArray.push(data[key])
+                //         }
+                //         this.users = resultArray;
+                //     })
+                this.resource.getData({node: this.node})
                     .then(response => {
                         return response.json();
                     })
@@ -61,9 +76,10 @@
         },
         created() {
             const customActions = {
-                saveAlt: { method: 'POST', url: 'lesson15alt.json'}
+                saveAlt: { method: 'POST', url: 'lesson15alt.json'},
+                getData: { method: 'GET', }
             }
-            this.resource = this.$resource('lesson15data.json', {}, customActions)
+            this.resource = this.$resource('{node}.json', {}, customActions)
         }
     }
 </script>
