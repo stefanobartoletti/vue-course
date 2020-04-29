@@ -11,7 +11,11 @@ Vue.http.interceptors.push((request, next) => {
   if (request.method == 'POST') {
     request.method = 'PUT';
   }
-  next();
+  next(response => {
+    response.json = () => {
+      return { messages: response.body }
+    }
+  });
 });
 
 new Vue({
