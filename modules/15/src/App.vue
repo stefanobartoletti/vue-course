@@ -35,7 +35,7 @@
         },
         methods: {
             submit() {
-                this.$http.post('https://sb-vue-test.firebaseio.com/lesson15data.json', this.user)
+                this.$http.post('', this.user)
                     .then(response  => {
                         console.log(response)
                     }, error => {
@@ -43,7 +43,7 @@
                     });
             },
             fetchData() {
-                this.$http.get('https://sb-vue-test.firebaseio.com/lesson15data.json')
+                this.$http.get('') // URL set globally in vue-resource options
                     .then(response => {
                         return response.json();
                     })
