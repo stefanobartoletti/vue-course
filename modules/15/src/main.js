@@ -5,7 +5,7 @@ import App from './App.vue'
 Vue.use(VueResource);
 
 // vue-resource options
-Vue.http.options.root = 'https://sb-vue-test.firebaseio.com/lesson15data.json';
+Vue.http.options.root = 'https://sb-vue-test.firebaseio.com/';
 Vue.http.interceptors.push((request, next) => {
   console.log(request);
   if (request.method == 'POST') {
