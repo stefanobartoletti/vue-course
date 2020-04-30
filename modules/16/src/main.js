@@ -8,6 +8,15 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   routes,  // shortcut for "routes: routes" in ES6
   mode: 'history', // set modes for the URL; default is 'hash', while 'history' removes the hash from the URL
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    if (to.hash) {
+      return { selector: to.hash }
+    }
+    return {x: 0, y: 0}; // scroll to given coordinates;
+  }
 })
 
 new Vue({
