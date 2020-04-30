@@ -14,5 +14,6 @@ export const routes = [
         { path: ':id/edit', component: UserEdit, name: 'userEdit', props: true },
     ] },
     { path: '/redirect-1', redirect: '/user' },
-    { path: '/redirect-2', redirect: {name: 'home'} }
+    { path: '/redirect-2', redirect: {name: 'home'} },
+    { path: '*', redirect: '/' } // "catchall" redirection for all other routes, which were not defined before.
 ]
