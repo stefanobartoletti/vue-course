@@ -7,9 +7,9 @@ import UserStart from './components/user/UserStart.vue'
 export const routes = [
     { path: '', component: Home },
     // { path: '/user/:id', component: User, props: true },
-    { path: '/user', component: User, children: [
+    { path: '/user', component: User, props: true, children: [
         { path: '', component: UserStart },
-        { path: ':id', component: UserDetail },
+        { path: ':id', component: UserDetail, props: true },
         { path: ':id/edit', component: UserEdit },
     ] },
 ]
