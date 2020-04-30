@@ -5,13 +5,22 @@
         <router-link 
             tag="button"
             class="btn btn-primary"
-            :to="{ name: 'userEdit', query: {locale: 'en', q: 100} }"
+            :to="linkTo"
         >Edit User</router-link>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            linkTo: { 
+                name: 'userEdit',
+                query: {locale: 'en', q: 100},
+                hash: '#data'
+            }
+        }
+    },
     props: {
         id: {
             type: Number,
