@@ -6,7 +6,9 @@
                 <hr>
                 <!-- <app-header></app-header> -->
                 <router-view name="header-top"></router-view>
-                <router-view></router-view>
+                <transition name="slide" mode="out-in">
+                    <router-view></router-view>
+                </transition>
                 <router-view name="header-bottom"></router-view>
             </div>
         </div>
@@ -24,4 +26,43 @@
 </script>
 
 <style>
+
+    .slide-enter {
+        opacity: 0;
+    }
+    .slide-enter-active {
+        animation: slide-in 250ms ease-in-out forwards;
+        transition: opacity 250ms;
+    }
+    .slide-leave {
+
+    }
+    .slide-leave-active {
+        animation: slide-out 250ms ease-in-out forwards;
+        opacity: 0;
+        transition: opacity 250ms;
+        position: absolute;
+    }
+
+    .slide-move {
+        transition: transform 250ms;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(20px);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slide-out {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(20px);
+        }
+    }
 </style>
