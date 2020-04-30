@@ -9,14 +9,23 @@
 
 <script>
 export default {
-    data() {
-        return {
-            id: this.$route.params.id,
-        }
-    },
-    watch: {
-        '$route'(to, from) {
-            this.id = to.params.id;
+    // data() {
+    //     return {
+    //         id: this.$route.params.id,
+    //     }
+    // },
+
+    // watch: {
+    //     '$route'(to, from) {
+    //         this.id = to.params.id;
+    //     }
+    // },
+
+    // in recent versions of vue-router, route params can be bound to props in the target component, this also eliminates the need to watch $route. 
+    props: {
+        id: {
+            type: Number,
+            default: 1,
         }
     },
     methods: {
