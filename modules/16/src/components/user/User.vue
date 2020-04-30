@@ -2,8 +2,10 @@
     <div>
         <h1>The User Page</h1>
         <hr>
-        <p>Loaded ID: {{id}}</p>
+        <!-- <p>Loaded ID: {{id}}</p> -->
         <button @click="navigateToHome">Go Home</button>
+        <hr>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -22,12 +24,12 @@ export default {
     // },
 
     // in recent versions of vue-router, route params can be bound to props in the target component, this also eliminates the need to watch $route. 
-    props: {
-        id: {
-            type: Number,
-            default: 1,
-        }
-    },
+    // props: {
+    //     id: {
+    //         type: Number,
+    //         default: 1,
+    //     }
+    // },
     methods: {
         navigateToHome() {
             this.$router.push('/');
