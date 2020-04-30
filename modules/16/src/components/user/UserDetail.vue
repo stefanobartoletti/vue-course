@@ -5,7 +5,7 @@
         <router-link 
             tag="button"
             class="btn btn-primary"
-            :to="'/user/' + id + '/edit'"
+            :to="{ name: 'userEdit' }"
         >Edit User</router-link>
     </div>
 </template>
