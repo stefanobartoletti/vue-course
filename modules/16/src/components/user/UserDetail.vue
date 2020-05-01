@@ -26,6 +26,10 @@ export default {
             type: Number,
             default: 1,
         }
-    }
+    },
+    beforeRouteEnter(to, from, next) {
+        console.log('Inside component beforeRouteEnter')
+        next();
+    },
 }
 </script>

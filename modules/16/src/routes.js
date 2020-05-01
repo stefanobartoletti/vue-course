@@ -10,7 +10,10 @@ export const routes = [
     // { path: '/user/:id', component: User, props: true },
     { path: '/user', components: { default: User, 'header-bottom': Header }, children: [
         { path: '', component: UserStart },
-        { path: ':id', component: UserDetail, props: true },
+        { path: ':id', component: UserDetail, props: true, beforeEnter: (to, from, next) => {
+            console.log('inside route beforeEach');
+            next();
+        } },
         { path: ':id/edit', component: UserEdit, name: 'userEdit', props: true },
     ] },
     { path: '/redirect-1', redirect: '/user' },

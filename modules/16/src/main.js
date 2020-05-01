@@ -17,7 +17,13 @@ const router = new VueRouter({
     }
     return {x: 0, y: 0}; // scroll to given coordinates;
   }
-})
+});
+
+
+router.beforeEach((to, from, next) => {  // global "before" navigation guard, applied always
+  console.log('global beforeEach');
+  next();
+});
 
 new Vue({
   el: '#app',
