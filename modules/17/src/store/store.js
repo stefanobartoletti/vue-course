@@ -17,11 +17,11 @@ export const store = new Vuex.Store({
     },
     // mutations are always synchronous, it is not possible to use async tasks like i.e. setTimeout() or reaching out to a server.
     mutations: {
-        increment: state => {
-            state.counter++;
+        increment: (state, payload) => {
+            state.counter += payload;
         },
-        decrement: state => {
-            state.counter--;
+        decrement: (state, payload) => {
+            state.counter -= payload;
         }
     },
     // actions are used to perform async tasks before commiting data to mutations; it is a best practice to always use actions, instead of directly mutations, from components
@@ -32,14 +32,14 @@ export const store = new Vuex.Store({
         decrement: ({ commit }) => { // alt syntax to use a single method from context object
             commit('decrement');
         },
-        asyncIncrement: ({ commit }) => {
+        asyncIncrement: ({ commit }, payload) => {
             setTimeout(() => {
-                commit('increment');
+                commit('increment', payload);
             }, 1000)
         },
-        asyncDecrement: ({ commit }) => {
+        asyncDecrement: ({ commit }, payload) => {
             setTimeout(() => {
-                commit('decrement');
+                commit('decrement', payload);
             }, 1000)
         }
     }
