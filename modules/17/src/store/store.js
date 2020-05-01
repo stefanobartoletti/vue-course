@@ -26,21 +26,21 @@ export const store = new Vuex.Store({
     },
     // actions are used to perform async tasks before commiting data to mutations; it is a best practice to always use actions, instead of directly mutations, from components
     actions: {
-        increment: context => {
-            context.commit('increment');
+        increment: (context, payload) => {
+            context.commit('increment', payload);
         },
-        decrement: ({ commit }) => { // alt syntax to use a single method from context object
-            commit('decrement');
+        decrement: ({ commit }, payload) => { // alt syntax to use a single method from context object
+            commit('decrement', payload);
         },
         asyncIncrement: ({ commit }, payload) => {
             setTimeout(() => {
-                commit('increment', payload);
-            }, 1000)
+                commit('increment', payload.by);
+            }, payload.duration)
         },
         asyncDecrement: ({ commit }, payload) => {
             setTimeout(() => {
-                commit('decrement', payload);
-            }, 1000)
+                commit('decrement', payload.by);
+            }, payload.duration)
         }
     }
 });
