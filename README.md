@@ -22,3 +22,4 @@ Lessons and exercises from a Vue.js course I'm taking, provided by Academind on 
 > **14a:** "Quiz" 
 > **15:** Connecting to server with HTTP with *vue-resource*
 > **16:** Routing with *vue-router*
+> **17:** State management with *vuex*
