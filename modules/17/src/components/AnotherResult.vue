@@ -7,13 +7,22 @@
 
 <script>
     import { mapGetters } from 'vuex';
+    import * as types from '../store/types';
+
     export default {
         computed: {
-            ...mapGetters([
-                'doubleCounter',
-                'stringCounter',
-            ])
+            ...mapGetters({
+                doubleCounter: types.DOUBLE_COUNTER,
+                stringCounter: types.CLICK_COUNTER,
+            })
         },
+        
+        // computed: {
+        //     ...mapGetters([
+        //         'doubleCounter',
+        //         'stringCounter',
+        //     ])
+        // },
         
         // it is also possible to map getter to different names with an object
         // computed: mapGetters({
