@@ -9,6 +9,12 @@
                 <app-counter></app-counter>
                 <br>
                 <app-another-counter></app-another-counter>
+                <hr>
+                <input type="text" :value="value" @input="updateValue"> <!-- Two way binding -->
+                <p>{{ value }}</p>
+                <hr>
+                <input type="text" :value="value" @input="updateValue"> <!-- Two way binding -->
+                <p>{{ value }}</p>
             </div>
         </div>
     </div>
@@ -21,6 +27,24 @@
     import AnotherResult from './components/AnotherResult.vue';
 
     export default {
+        computed: {
+            value() {
+                return this.$store.getters.value;
+            },
+            value2: { // using get() and set() in computed property should be used rarely, it is useful together with v-model to bind state data to inputs.
+                get() {
+                    return this.$store.getters.value;
+                },
+                set(value) {
+                    this.$store.dispatch('updateValue', value);
+                }
+            }
+        },
+        methods: {
+            updateValue() {
+                this.$store.dispatch('updateValue', event.target.value);
+            }
+        },
         components: {
             appCounter: Counter,
             appAnotherCounter: AnotherCounter,

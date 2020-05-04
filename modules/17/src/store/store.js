@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         counter: 0,
+        value: 0
     },
     getters: {
         doubleCounter: state => {
@@ -13,6 +14,9 @@ export const store = new Vuex.Store({
         },
         stringCounter: state => {
             return state.counter + ' Clicks';
+        },
+        value: state => {
+            return state.value;
         }
     },
     // mutations are always synchronous, it is not possible to use async tasks like i.e. setTimeout() or reaching out to a server.
@@ -22,6 +26,9 @@ export const store = new Vuex.Store({
         },
         decrement: (state, payload) => {
             state.counter -= payload;
+        },
+        updateValue: (state, payload) => {
+            state.value = payload;
         }
     },
     // actions are used to perform async tasks before commiting data to mutations; it is a best practice to always use actions, instead of directly mutations, from components
@@ -41,6 +48,9 @@ export const store = new Vuex.Store({
             setTimeout(() => {
                 commit('decrement', payload.by);
             }, payload.duration)
+        },
+        updateValue: ({ commit }, payload)  => {
+            commit('updateValue', payload);
         }
     }
 });
