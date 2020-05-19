@@ -2,6 +2,7 @@ dependencies:
   bootstrap: 3.4.1
   vue: 2.6.11
   vue-router: 3.2.0
+  vuex: 3.4.0_vue@2.6.11
 devDependencies:
   babel-core: 6.26.3
   babel-loader: 6.4.1_9c1ab37d541a6b043eaf7791c99e8730
@@ -4660,6 +4661,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
+  /vuex/3.4.0_vue@2.6.11:
+    dependencies:
+      vue: 2.6.11
+    dev: false
+    peerDependencies:
+      vue: ^2.0.0
+    resolution:
+      integrity: sha512-ajtqwEW/QhnrBZQsZxCLHThZZaa+Db45c92Asf46ZDXu6uHXgbfVuBaJ4gzD2r4UX0oMJHstFwd2r2HM4l8umg==
   /watchpack-chokidar2/2.0.0:
     dependencies:
       chokidar: 2.1.8
@@ -4885,5 +4894,6 @@ specifiers:
   vue: ^2.0.1
   vue-loader: ^9.7.0
   vue-router: ^3.1.6
+  vuex: ^3.4.0
   webpack: 2.1.0-beta.25
   webpack-dev-server: 2.1.0-beta.0
