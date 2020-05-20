@@ -15,7 +15,7 @@ const mutations = {
 
 const actions = {
     buyStock: ({ commit }, order) => {
-        commit();
+        commit('BUY_STOCK', order);
     },
     initStocks: ({ commit }) => {
         commit('SET_STOCKS', stocks);
@@ -27,7 +27,7 @@ const actions = {
 
 const getters = {
     stocks: state => {
-        return stet.stocks;
+        return state.stocks;
     }
 };
 
