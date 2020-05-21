@@ -24,3 +24,6 @@ Lessons and exercises from a Vue.js course I'm taking, provided by Academind on 
 > **16:** Routing with *vue-router*
 > **17:** State management with *vuex*
 > **18:** "Stock Trader" final project
+>
+> ---
+> **22:** Axios
