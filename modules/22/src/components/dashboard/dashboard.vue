@@ -16,7 +16,7 @@ export default {
 		};
 	},
 	created() {
-		axios.get('https://sb-vue-axios.firebaseio.com/users.json')
+		axios.get('/users.json')
 			.then((res) => {
                 console.log(res)
                 const data = res.data
