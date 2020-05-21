@@ -106,7 +106,7 @@ import axios from 'axios';
         }
         console.log(formData)
         axios.post('https://sb-vue-axios.firebaseio.com/users.json', formData)
-        .then(response => console.log(response))
+        .then(res => console.log(res))
         .catch(error => console.log(error))
       }
     }
